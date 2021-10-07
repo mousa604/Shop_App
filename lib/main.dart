@@ -1,3 +1,5 @@
+import 'package:amit_shop/shard/bloc_observer.dart';
+import 'package:bloc/bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +10,7 @@ import 'Screens/item_details_screen.dart';
 import 'Screens/login_screen.dart';
 
 Future<void> main() async {
+  Bloc.observer = MyBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
