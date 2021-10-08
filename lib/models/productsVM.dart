@@ -39,6 +39,7 @@ class Product {
     this.avatar,
     this.priceFinal,
     this.priceFinalText,
+    this.count,
   });
 
   int? id;
@@ -54,6 +55,7 @@ class Product {
   String? avatar;
   double? priceFinal;
   String? priceFinalText;
+  int ? count=1;
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
     id: json["id"] == null ? null : json["id"],
@@ -69,6 +71,7 @@ class Product {
     avatar: json["avatar"] == null ? null : json["avatar"],
     priceFinal: json["price_final"] == null ? null : json["price_final"].toDouble(),
     priceFinalText: json["price_final_text"] == null ? null : json["price_final_text"],
+    count: json["count"] == null ? null : json["count"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -85,6 +88,7 @@ class Product {
     "avatar": avatar == null ? null : avatar,
     "price_final": priceFinal == null ? null : priceFinal,
     "price_final_text": priceFinalText == null ? null : priceFinalText,
+    "count": count == null ? null : count,
   };
 }
 

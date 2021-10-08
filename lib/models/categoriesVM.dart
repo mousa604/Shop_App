@@ -19,6 +19,7 @@ class CategoriesVm {
     categories: json["categories"] == null ? null : List<Category>.from(json["categories"].map((x) => Category.fromJson(x))),
   );
 
+
   Map<String, dynamic> toJson() => {
     "categories": categories == null ? null : List<dynamic>.from(categories!.map((x) => x.toJson())),
   };

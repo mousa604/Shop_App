@@ -1,3 +1,4 @@
+import 'package:amit_shop/Screens/products_from_categories_screen.dart';
 import 'package:amit_shop/logic/API.dart';
 import 'package:amit_shop/models/categoriesVM.dart';
 import 'package:flutter/cupertino.dart';
@@ -33,26 +34,31 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   crossAxisSpacing: size.width * .03,
                   children: List.generate(
                     snapshot.data!.categories!.length,
-                    (index) => Stack(
-                      children: [
-                        Image(
-                          image: NetworkImage(
-                              '${snapshot.data!.categories![index].avatar}'),
-                          fit: BoxFit.fill,
-                          width: size.width * .5,
-                          height: size.height * .5,
-                        ),
-                        Center(
-                          child: Container(
-                              color: Colors.black.withOpacity(.5),
-                              child: Text(
-                                '${snapshot.data!.categories![index].name}',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: size.width * .07),
-                              )),
-                        )
-                      ],
+                    (index) => InkWell(
+                      onTap: (){
+                        Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=>ProductsScreen(categoriesId: snapshot.data!.categories![index].id as int,)) );
+                      },
+                      child: Stack(
+                        children: [
+                          Image(
+                            image: NetworkImage(
+                                '${snapshot.data!.categories![index].avatar}'),
+                            fit: BoxFit.fill,
+                            width: size.width * .5,
+                            height: size.height * .5,
+                          ),
+                          Center(
+                            child: Container(
+                                color: Colors.black.withOpacity(.5),
+                                child: Text(
+                                  '${snapshot.data!.categories![index].name}',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: size.width * .07),
+                                )),
+                          )
+                        ],
+                      ),
                     ),
                   ));
             } else

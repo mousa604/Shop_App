@@ -3,6 +3,8 @@ import 'package:amit_shop/Screens/categories_screen.dart';
 import 'package:amit_shop/Screens/home_screen.dart';
 import 'package:amit_shop/Screens/menu_screen.dart';
 import 'package:amit_shop/cubit/stats.dart';
+import 'package:amit_shop/logic/API.dart';
+import 'package:amit_shop/models/productsVM.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,15 +29,21 @@ class AppCubit extends Cubit<AppStats>
   static var cartItems =[];
   void addToCart(item ){
     cartItems.add(item);
+
+  }
+  void addToCartFromDetails(item ){
+    cartItems.add(item);
+    emit(AddToCartFromDetailsChange());
+
   }
 
-  int count =1;
-  void add(){
+
+  void add(count){
     count++;
     emit(AddCountChange());
 
   }
-  void subtract(){
+  void subtract(count){
     count--;
     emit(SubtractCountChange());
 
@@ -48,6 +56,13 @@ class AppCubit extends Cubit<AppStats>
   void removeItem(item){
     cartItems.remove(item);
     emit(RemoveItemFromCartChange());
+  }
+
+  List productsFromCategories=[];
+  void addProductsFromCategories(value){
+    productsFromCategories.add(value);
+    emit(AddProductsFromCategoriesChange());
+
   }
 
 }

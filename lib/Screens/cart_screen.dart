@@ -35,6 +35,7 @@ class CartScreen extends StatelessWidget {
                                 Image(image: NetworkImage('${AppCubit.cartItems[index].avatar}'),height: size.height*.15,width: size.width*.3,fit: BoxFit.fill,),
                                 SizedBox(width: 10,),
                                 Expanded(
+
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,7 +87,7 @@ class CartScreen extends StatelessWidget {
                                           SizedBox(width: size.width*.1,),
                                           MaterialButton(
                                               onPressed: () {
-                                              cubit.subtract();
+                                              cubit.subtract(AppCubit.cartItems[index].count);
                                               },
                                               color: Colors.red[700],
                                               height: size.height * .01,
@@ -98,12 +99,12 @@ class CartScreen extends StatelessWidget {
                                             decoration: BoxDecoration(
                                               border: Border.all(color: Colors.grey,),
                                             ),
-                                            child: Text(' ${cubit.count} ',style: TextStyle(fontSize: size.height*.025),),
+                                            child: Text('${AppCubit.cartItems[index].count}',style: TextStyle(fontSize: size.height*.025),),
                                           ),
                                           SizedBox(width: size.width*.01,),
                                           MaterialButton(
                                             onPressed: () {
-                                             cubit.add();
+                                             cubit.add(AppCubit.cartItems[index].count);
                                             },
                                             color: Colors.red[700],
                                             height: size.height * .01,
