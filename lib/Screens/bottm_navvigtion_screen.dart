@@ -19,13 +19,14 @@ class BottomNavigtionScreen extends StatelessWidget {
       create: (BuildContext context) =>AppCubit(),
       child: BlocConsumer<AppCubit,AppStats>(
         listener: (context,stats){},
-        builder: (context,stats){
-          AppCubit cubit =AppCubit.get(context);
+        builder: (context,stats)
+        {
+          AppCubit cubit = AppCubit.get(context);
           return Scaffold(
             backgroundColor: Colors.white,
             bottomNavigationBar: BottomNavigationBar(
               backgroundColor: Colors.white,
-              currentIndex:cubit. currentIndex,
+              currentIndex: cubit.currentIndex,
               onTap: (value){
               cubit.changeCurrentIndex(value);
               },

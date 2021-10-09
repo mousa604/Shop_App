@@ -55,7 +55,7 @@ class Product {
   String? avatar;
   double? priceFinal;
   String? priceFinalText;
-  int ? count=1;
+  int ? count;
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
     id: json["id"] == null ? null : json["id"],

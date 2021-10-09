@@ -36,7 +36,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                     snapshot.data!.categories!.length,
                     (index) => InkWell(
                       onTap: (){
-                        Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=>ProductsScreen(categoriesId: snapshot.data!.categories![index].id as int,)) );
+                        Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=>ProductsScreen(categoryId: snapshot.data!.categories![index].id,
+                          categoryName: snapshot.data!.categories![index].name,)) );
                       },
                       child: Stack(
                         children: [

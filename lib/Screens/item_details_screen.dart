@@ -5,11 +5,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+// ignore: must_be_immutable
 class ItemDetails extends StatelessWidget {
-  Product selectedItem;
+   Product selectedItem;
    ItemDetails({required this.selectedItem});
 
   int count =1;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -89,7 +91,7 @@ class ItemDetails extends StatelessWidget {
                             SizedBox(width: size.width*.02,),
                             MaterialButton(
                                 onPressed: () {
-                                  AppCubit.get(context).add(selectedItem.count);
+                                  AppCubit.get(context).add(selectedItem.count!);
                                 },
                                 color: Colors.red[700],
                                 height: size.height * .03,
@@ -139,6 +141,7 @@ class ItemDetails extends StatelessWidget {
       ),
     );
   }
+
 }
 
 

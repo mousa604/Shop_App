@@ -69,8 +69,16 @@ class HomeScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 MaterialButton(
-                                    onPressed: () {
-
+                                    onPressed: ()
+                                    {
+                                      if(snapshot.data!.products![index].count == null)
+                                        {
+                                          snapshot.data!.products![index].count = 1;
+                                        }
+                                      else
+                                        {
+                                          snapshot.data!.products![index].count = (snapshot.data!.products![index].count! + 1);
+                                        }
                                       AppCubit.get(context).addToCart(snapshot.data!.products![index]);
                                     },
                                     color: Colors.red[700],
