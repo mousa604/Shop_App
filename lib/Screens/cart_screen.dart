@@ -87,8 +87,13 @@ class CartScreen extends StatelessWidget {
                                             ),
                                             SizedBox(width: size.width*.1,),
                                             MaterialButton(
-                                                onPressed: () {
-                                                cubit.subtract(AppCubit.cartItems[index].count as int);
+                                                onPressed: ()
+                                                {
+                                                  if(AppCubit.cartItems[index].count! > 1 )
+                                                  {
+                                                    AppCubit.cartItems[index].count = AppCubit.cartItems[index].count! - 1;
+                                                    cubit.subtract();
+                                                  }
                                                 },
                                                 color: Colors.red[700],
                                                 height: size.height * .01,
@@ -106,9 +111,8 @@ class CartScreen extends StatelessWidget {
                                             MaterialButton(
                                               onPressed: ()
                                               {
-                                                print("AppCubit.cartItems[index].count");
-                                                print(AppCubit.cartItems[index].count);
-                                                cubit.add(AppCubit.cartItems[index].count);
+                                                AppCubit.cartItems[index].count = AppCubit.cartItems[index].count! + 1;
+                                                cubit.incrementItemCount();
                                               },
                                               color: Colors.red[700],
                                               height: size.height * .01,

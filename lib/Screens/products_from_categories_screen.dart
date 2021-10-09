@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'bottm_navvigtion_screen.dart';
+import 'bottom_navigation_screen.dart';
 import 'categories_screen.dart';
 import 'item_details_screen.dart';
 
@@ -108,8 +108,15 @@ class ProductsScreen extends StatelessWidget {
                                 children: [
                                   MaterialButton(
                                       onPressed: () {
-                                        AppCubit.get(context).addToCart(
-                                            productsList[index]);
+                                        if(productsList[index].count == null)
+                                        {
+                                          productsList[index].count = 1;
+                                        }
+                                        else
+                                        {
+                                          productsList[index].count = (productsList[index].count! + 1);
+                                        }
+                                        AppCubit.get(context).addToCart(productsList[index]);
                                       },
                                       color: Colors.red[700],
                                       height: size.height * .03,

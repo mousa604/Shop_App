@@ -5,16 +5,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'bottom_navigation_screen.dart';
+
 // ignore: must_be_immutable
 class ItemDetails extends StatelessWidget {
    Product selectedItem;
    ItemDetails({required this.selectedItem});
 
-  int count =1;
+
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    selectedItem.count = 1;
 
     return SafeArea(
       child: BlocProvider(
@@ -75,7 +78,11 @@ class ItemDetails extends StatelessWidget {
                             SizedBox(width: size.width*.29,),
                             MaterialButton(
                                 onPressed: () {
-                                  AppCubit.get(context).subtract(selectedItem.count);
+                                  if(selectedItem.count! > 1 )
+                                    {
+                                      selectedItem.count = selectedItem.count! - 1;
+                                      AppCubit.get(context).subtract();
+                                    }
                                 },
                                 color: Colors.red[700],
                                 height: size.height * .03,
@@ -91,7 +98,8 @@ class ItemDetails extends StatelessWidget {
                             SizedBox(width: size.width*.02,),
                             MaterialButton(
                                 onPressed: () {
-                                  AppCubit.get(context).add(selectedItem.count!);
+                                  selectedItem.count = (selectedItem.count! + 1);
+                                  AppCubit.get(context).incrementItemCount();
                                 },
                                 color: Colors.red[700],
                                 height: size.height * .03,
@@ -121,9 +129,11 @@ class ItemDetails extends StatelessWidget {
                   ),
                   Center(
                     child: MaterialButton(
-                      onPressed: () {
-
-                        AppCubit.get(context).addToCartFromDetails(selectedItem);
+                      onPressed: ()
+                      {
+                        AppCubit.get(context).addToCart(selectedItem);
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => BottomNavigtionScreen()));
+                        //AppCubit.get(context).addToCartFromDetails(selectedItem);
                       },
                       color: Colors.red[700],
                       height: size.height * .05,
@@ -140,6 +150,7 @@ class ItemDetails extends StatelessWidget {
         ),
       ),
     );
+
   }
 
 }

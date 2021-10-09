@@ -2,8 +2,7 @@ import 'package:amit_shop/shard/bloc_observer.dart';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
-import 'Screens/bottm_navvigtion_screen.dart';
+import 'Screens/bottom_navigation_screen.dart';
 import 'Screens/categories_screen.dart';
 import 'Screens/home_screen.dart';
 import 'Screens/item_details_screen.dart';

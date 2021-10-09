@@ -7,7 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'bottm_navvigtion_screen.dart';
+import 'bottom_navigation_screen.dart';
 class LoginScreen extends StatelessWidget {
   var emailController =TextEditingController();
   var passwordController =TextEditingController();

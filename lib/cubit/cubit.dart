@@ -28,28 +28,43 @@ class AppCubit extends Cubit<AppStats>
     emit(NavBarChange());
   }
 
-  static var cartItems =[];
-  void addToCart(item ){
-    cartItems.add(item);
+  static List<Product> cartItems =[];
 
+  void addToCart(Product item)
+  {
+    bool addedBefore = false;
+    for(int i=0; i< cartItems.length; i++)
+      {
+        if(item.id == cartItems[i].id)
+          {
+            addedBefore = true;
+            cartItems[i].count = cartItems[i].count! + 1;
+            break;
+          }
+      }
+
+    if(addedBefore == false)
+      {
+        cartItems.add(item);
+      }
   }
-  void addToCartFromDetails(item ){
-    cartItems.add(item);
-    emit(AddToCartFromDetailsChange());
 
-  }
+  // void addToCartFromDetails(item )
+  // {
+  //   cartItems.add(item);
+  //   emit(AddToCartFromDetailsChange());
+  //
+  // }
 
 
-  void add(int count){
-    count++;
+  void incrementItemCount()
+  {
     emit(AddCountChange());
-
   }
 
-  void subtract(count){
-    count--;
+  void subtract()
+  {
     emit(SubtractCountChange());
-
   }
 
   void clearCart(){
