@@ -1,7 +1,6 @@
 import 'package:amit_shop/Screens/cart_screen.dart';
 import 'package:amit_shop/Screens/categories_screen.dart';
 import 'package:amit_shop/Screens/home_screen.dart';
-import 'package:amit_shop/Screens/menu_screen.dart';
 import 'package:amit_shop/cubit/stats.dart';
 import 'package:amit_shop/logic/API.dart';
 import 'package:amit_shop/models/productsVM.dart';
@@ -21,7 +20,7 @@ class AppCubit extends Cubit<AppStats>
     HomeScreen(),
     CategoriesScreen(),
     CartScreen(),
-    MenuScreen(),
+
   ];
   void changeCurrentIndex(value){
     currentIndex=value;

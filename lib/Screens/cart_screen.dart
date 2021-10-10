@@ -17,6 +17,22 @@ class CartScreen extends StatelessWidget {
         builder: (context,stats){
           AppCubit cubit =AppCubit.get(context);
           return Scaffold(
+            appBar: AppBar(
+              titleSpacing: 0,
+              backgroundColor: Colors.white,
+              elevation: 0,
+              title: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Text('Cart',style: TextStyle(color: Colors.black,fontSize: 25),),
+
+              ),
+              actions: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 20),
+                  child: IconButton(icon: Icon(Icons.search,color: Colors.black,size: 30,), onPressed: () {  },),
+                ),
+              ],
+            ),
             backgroundColor: Colors.white,
             body: Padding(
               padding: const EdgeInsets.all(15.0),

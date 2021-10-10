@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'cart_screen.dart';
 import 'categories_screen.dart';
 import 'home_screen.dart';
-import 'menu_screen.dart';
+
 
 class BottomNavigtionScreen extends StatelessWidget {
 
@@ -25,6 +25,7 @@ class BottomNavigtionScreen extends StatelessWidget {
           return Scaffold(
             backgroundColor: Colors.white,
             bottomNavigationBar: BottomNavigationBar(
+              elevation: 0,
               backgroundColor: Colors.white,
               currentIndex: cubit.currentIndex,
               onTap: (value){
@@ -36,7 +37,7 @@ class BottomNavigtionScreen extends StatelessWidget {
                 BottomNavigationBarItem(icon: Icon(Icons.home,size:size.height*.04 ,),label: 'Home',),
                 BottomNavigationBarItem(icon: Icon(Icons.category_outlined,size:size.height*.04 ,),label: 'Categories'),
                 BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_outlined,size:size.height*.04 ,),label: 'Cart'),
-                BottomNavigationBarItem(icon: Icon(Icons.menu,size:size.height*.04 ,),label: 'Menu'),
+
               ],
             ),
             body: cubit.screens[cubit.currentIndex],
