@@ -84,7 +84,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                       '${snapshot.data!.categories![index].name}',
                                       style: TextStyle(
                                           color: Colors.white,
-                                          fontSize: size.width * .07),
+                                          fontSize: size.width * .06),
                                     )),
                               )
                             ],

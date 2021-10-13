@@ -42,7 +42,7 @@ class LoginScreen extends StatelessWidget {
 
                       ),
                     ),
-                    SizedBox(height: size.height*.1,),
+                    SizedBox(height: size.height*.05,),
                     Form (
                         key: _formKey,
                         child: Column(
@@ -102,8 +102,7 @@ class LoginScreen extends StatelessWidget {
                                     }
                                   }
                                 }catch(error){
-                                  print('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
-                                  print('${error.toString()}mmmmmmmm');
+
                                     AppCubit.get(context).showError(error.toString());
                                   AppCubit.get(context).isShowBottomLogin(show : false);
                                   alertDialogFunc(context: context,error: AppCubit.get(context).erorrText);
